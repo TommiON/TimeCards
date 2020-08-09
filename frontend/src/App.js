@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import './App.css'
+import LoginForm from './components/LoginForm'
+import LogoutForm from './components/LogoutForm'
+import ProjectList from './components/ProjectList'
 
 function App() {
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedInUser')
+    if(loggedUserJSON) {
+      const loggedUser = JSON.parse(loggedUserJSON)
+      setUser(loggedUser)
+    }
+  }, [])
+
+  if(!user) {
+    return(
+      <div className="container">
+        <LoginForm setUser={u => setUser(u)} />
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <LogoutForm user={user} setUser={setUser} />
+      <ProjectList />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
