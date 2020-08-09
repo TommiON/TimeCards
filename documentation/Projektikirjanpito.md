@@ -1,8 +1,8 @@
 # Projektikirjanpito
 
 |Päivä|Työ|Tunnit|
----|---|---|---|---|---|---
-8.8.2020|Projektin rakenteen hahmottelu, alkukonfiguroinnit, repositorion perustaminen|8
+---|---|---|
+8.8.2020|Projektin rakenteen hahmottelu, alkukonfiguroinnit, repositorion perustaminen|8|
 
 ||Päivä|Työ|Tunnit
 ||
